@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Song+Myung&display=swap');
+
+body, html{
+    height: 100%;
+}
+
+.logo-text
+{
+    color: #ff2c66
+}
+
+ .banner-bg {
+   background: url(../imgs/top-banner-swirl.svg) top no-repeat, url(../imgs/bottom-banner-swirl.svg) bottom no-repeat;
+    background-size: cover; 
+    background-color: #FAFAFD;
+    background-size: 100%;
+    padding-top: 2em;
+    position: relative;
+    z-index: -100;
+}
+
+.footer-banner-bg {
+    background: url(../imgs/top-banner-swirl.svg) top no-repeat, url(../imgs/top-footer-swirl.svg) bottom no-repeat;
+     background-size: cover; 
+     background-color: #FAFAFD;
+     background-size: 100%;
+     padding-top: 2em;
+     position: relative;
+     z-index: -100;
+     margin-bottom: -1px;
+ }
+
+
+.duration-200 {
+    transition-duration: 200ms;
+}
+.ease-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);      
+}
+.ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.transition {
+transition: transform 250ms ease, color 250ms ease;
+}
+.transform-180 {
+transform: rotate(-180deg);
+}
+
+.hero-image-bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* z-index: -3; */
+    width: 55vw;
+    height: 35vw;
+}
+
+.hero-image {
+    right:10%;
+    width:30%;
+    bottom:12%;
+    top:5%
+}
+
+.hero-heading {
+    font-family: 'Song Myung';
+}
+
+.pt-30
+{
+    padding-top:7rem;
+}

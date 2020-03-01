@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brainuim</title>
+    <link
+      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.5/dist/alpine.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://kit.fontawesome.com/1800ab6c75.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="bg-gray-200">
+    <img class="hero-image-bg" src="imgs/bg.svg" alt="Hero shape" />
+    <img
+      src="imgs/undraw_browsing_urt9.svg"
+      class="hero-image absolute right-0"
+      alt=""
+    />
+    <div class="max-w-screen-xl mx-auto sm:px-6 lg:px-8">
+      <nav
+        class="flex items-center justify-between flex-wrap  px-3 py-6  w-full top-0 relative"
+        x-data="{ isOpen: false }"
+        @keydown.escape="isOpen = false"
+        :class="{ 'shadow-lg bg-blue-900' : isOpen , 'bg-transparent' : !isOpen}"
+      >
+        <!--Logo etc-->
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <a
+            class="flex items-center text-gray-200 no-underline hover:text-white hover:no-underline"
+            href="#"
+          >
+            <img class="h-8 mr-1" src="imgs/logo.svg" alt="Logo" />
+            <span class="text-gray-700 font-bold text-4xl logo-text">AYA</span>
+          </a>
+        </div>
+
+        <!--Toggle button (hidden on large screens)-->
+        <button
+          @click="isOpen = !isOpen"
+          type="button"
+          class="block lg:hidden px-2 text-white hover:text-white focus:outline-none focus:text-white"
+          :class="{ 'transition transform-180': isOpen }"
+        >
+          <svg
+            class="h-6 w-6 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              x-show="isOpen"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
+            />
+            <path
+              x-show="!isOpen"
+              fill-rule="evenodd"
+              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+            />
+          </svg>
+        </button>
+
+        <!--Menu-->
+        <div
+          class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
+          :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
+          @click.away="isOpen = false"
+          x-show="true"
+          x-transition:enter="ease-out duration-200"
+          x-transition:enter-start="opacity-0 transform"
+          x-transition:enter-end="opacity-100 transform"
+          x-transition:leave="ease-in duration-200"
+          x-transition:leave-start="opacity-100 transform"
+          x-transition:leave-end="opacity-0 transform"
+        >
+          <ul
+            class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center"
+          >
+            <li class="mr-3">
+              <a
+                class="inline-block py-2 px-4 text-white no-underline"
+                href="#"
+                @click="isOpen = false"
+                >ABOUT</a
+              >
+            </li>
+            <li class="mr-3">
+              <a
+                class="inline-block text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+                @click="isOpen = false"
+                >PRODUCTS</a
+              >
+            </li>
+            <li class="mr-3">
+              <a
+                class="inline-block text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+                @click="isOpen = false"
+                >PRICES</a
+              >
+            </li>
+            <li class="mr-3">
+              <a
+                class="inline-block text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+                @click="isOpen = false"
+                >DOCS</a
+              >
+            </li>
+            <li class="mr-3">
+              <button
+                class="bg-white hover:bg-blue-700 hover:text-white text-blue-600 font-bold py-2 px-4 rounded-full"
+                href="#"
+                @click="isOpen = false"
+              >
+                CONTACT
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!--Container for content-->
+      <div class="container my-12 mx-auto px-3 sm:ml-none md:px-3 mt-32 md:mt-40">
+        <div>
+          <h1
+            class="hero-heading max-w-xl text-6xl tracking-tight leading-tight font-extrabold text-blue-900 sm:text-5xl sm:leading-tight md:text-6xl"
+          >
+            Lorem ipsum dolor sit amet consectetur.
+          </h1>
+
+          <p class="my-12 text-3xl text-blue-600">
+           Lorem ipsum dolor, sit amet consectetur adipisicing elit.<br> Voluptas at facilis.
+          </p>
+          <button
+            class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold py-4 px-4 rounded-full mt-5 mb--5 w-64 shadow-lg"
+            href="#"
+            @click="isOpen = false"
+          >
+            SIGN UP
+          </button>
+          <button
+            class="bg-transparent border-blue-700 border hover:bg-blue-700 hover:text-white text-blue-700 font-bold py-4 px-4 rounded-full mt-5 mb--5 w-64 shadow-lg"
+            href="#"
+            @click="isOpen = false"
+          >
+            LEARN MORE
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="banner-bg">
+      <div class="container my-32 mx-auto px-4 md:px-12 text-center">
+        <h2 class="text-3xl text-blue-600 my-8 pt-30 text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit
+        </h2>
+       
+        <div class="flex flex-wrap md:flex-no-wrap">
+          <img
+            src="imgs/undraw_nature_fun_n9lv.svg"
+            class="w-auto sm:w-2/4 md:w-2/4 mr-8"
+          />
+          <div class="text-left  ml-8">
+            <p class="flex-1 mb-8">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea quo
+              beatae amet eaque, incidunt dolores placeat perferendis. Hic
+              recusandae suscipit, reiciendis dolorem, deleniti repudiandae sunt
+              tenetur maiores aliquam ad nemo.
+            </p>
+            <p class="flex-1 mb-8">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea quo
+              beatae amet eaque, incidunt dolores placeat perferendis. Hic
+              recusandae suscipit, reiciendis dolorem, deleniti repudiandae sunt
+              tenetur maiores aliquam ad nemo.
+            </p>
+            <a
+              href="#"
+              class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold py-4 px-4 rounded-full mt-5 mb--5 w-64 shadow-lg"
+              >LEARN MORE</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container my-32 mx-auto px-4 md:px-12 text-center">
+      <h2 class="text-3xl text-blue-600 my-8 pt-12 text-center">
+        Cras pellentesque neque a viverra condimentum
+      </h2>
+     
+      <div class="flex flex-wrap md:flex-no-wrap">
+        <div class="text-left  mr-8">
+          <p class="flex-1 mb-8">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea quo
+            beatae amet eaque, incidunt dolores placeat perferendis. Hic
+            recusandae suscipit, reiciendis dolorem, deleniti repudiandae sunt
+            tenetur maiores aliquam ad nemo.
+          </p>
+          <p class="flex-1 mb-8">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea quo
+            beatae amet eaque, incidunt dolores placeat perferendis. Hic
+            recusandae suscipit, reiciendis dolorem, deleniti repudiandae sunt
+            tenetur maiores aliquam ad nemo.
+          </p>
+          <a
+            href="#"
+            class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold py-4 px-4 rounded-full mt-5 mb--5 w-64 shadow-lg"
+            >LEARN MORE</a
+          >
+        </div>
+        <img
+          src="imgs/undraw_best_place_r685.svg"
+          class="w-auto sm:w-2/4 md:w-2/4 mr-8"
+        />
+      </div>
+    </div>
+    <div class="banner-bg">
+      <div class="container my-12 mx-auto px-4 md:px-12">
+        <div class="flex flex-wrap -mx-1 lg:-mx-4">
+          <!-- Column -->
+          <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <!-- Article -->
+            <article class="overflow-hidden rounded-lg shadow-lg bg-white p-4">
+              <img
+                src="imgs/undraw_verified_tw20.svg"
+                class="h-40 mx-auto my-3"
+                alt="Card image"
+              />
+              <h3 class="text-3xl text-blue-600 my-6 text-center">
+                SOME TITLE
+              </h3>
+              <p class="mt-5 ">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Similique error repellendus facere minus aspernatur numquam eius
+                incidunt ad assumenda excepturi, harum exercitationem inventore
+                nam molestias voluptatum eos quod quae mollitia!
+              </p>
+              <p class="my-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et,
+                facere. Vel iure omnis velit consectetur, numquam suscipit
+                eligendi laudantium iste quidem, nisi beatae alias laborum
+                tempore, non unde? Consectetur, necessitatibus.
+              </p>
+
+              <button
+                class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold py-2 px-4 rounded-full my-5 mb--5 block mx-auto"
+                href="#"
+                @click="isOpen = false"
+              >
+              LEARN MORE
+              </button>
+            </article>
+            <!-- END Article -->
+          </div>
+          <!-- END Column -->
+
+          <!-- Column -->
+          <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <!-- Article -->
+            <article class="overflow-hidden rounded-lg shadow-lg bg-white p-4">
+              <img
+                src="imgs/undraw_online_calendar_kvu2.svg"
+                class="h-40 mx-auto my-3"
+                alt="Card image"
+              />
+              <h3 class="text-3xl text-blue-600 my-6 text-center">
+                SOME TITLE
+              </h3>
+              <p class="mt-5 ">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Similique error repellendus facere minus aspernatur numquam eius
+                incidunt ad assumenda excepturi, harum exercitationem inventore
+                nam molestias voluptatum eos quod quae mollitia!
+              </p>
+              <p class="my-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et,
+                facere. Vel iure omnis velit consectetur, numquam suscipit
+                eligendi laudantium iste quidem, nisi beatae alias laborum
+                tempore, non unde? Consectetur, necessitatibus.
+              </p>
+
+              <button
+                class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold py-2 px-4 rounded-full my-5 mb--5 block mx-auto"
+                href="#"
+                @click="isOpen = false"
+              >
+              LEARN MORE
+              </button>
+            </article>
+            <!-- END Article -->
+          </div>
+          <!-- END Column -->
+
+          <!-- Column -->
+          <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <!-- Article -->
+            <article class="overflow-hidden rounded-lg shadow-lg bg-white p-4">
+              <img
+                src="imgs/undraw_public_discussion_btnw.svg"
+                class="h-40 mx-auto my-3"
+                alt="Card image"
+              />
+              <h3 class="text-3xl text-blue-600 my-6 text-center">
+                SOME TITLE
+              </h3>
+              <p class="mt-5 ">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Similique error repellendus facere minus aspernatur numquam eius
+                incidunt ad assumenda excepturi, harum exercitationem inventore
+                nam molestias voluptatum eos quod quae mollitia!
+              </p>
+              <p class="my-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et,
+                facere. Vel iure omnis velit consectetur, numquam suscipit
+                eligendi laudantium iste quidem, nisi beatae alias laborum
+                tempore, non unde? Consectetur, necessitatibus.
+              </p>
+
+              <button
+                class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold py-2 px-4 rounded-full my-5 mb--5 block mx-auto"
+                href="#"
+                @click="isOpen = false"
+              >
+              LEARN MORE
+              </button>
+            </article>
+            <!-- END Article -->
+          </div>
+          <!-- END Column -->
+        </div>
+      </div>
+    </div>
+    <div class="container mt-12 mx-auto pt-8 md:pt-8 text-center -my-18">
+      <h2 class="text-3xl text-blue-600 my-6 text-center">
+        Ready to get started?
+      </h2>
+      <button
+        class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold px-16 py-4 rounded-full my-5 mb--5 block mx-auto"
+      >
+        GET STARTED FOR FREE
+      </button>
+      <p>
+        No commitment, no credit card required.<br />
+        All you need is a Github account.
+      </p>
+    </div>
+    <div class="footer-banner-bg">
+      <div class="container mx-auto px-24 md:px-24 py-48">
+        <h2 class="text-3xl text-blue-600 my-6 mt-12 text-center">
+          Stay in the loop
+        </h2>
+        <p class="my-8">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+          laudantium aliquam quis natus, eaque distinctio placeat eveniet,
+          pariatur officia tempore nemo dolor minima dolorem quia beatae
+          voluptatibus alias vero aperiam?
+        </p>
+        <form class="w-full max-w-3xl mx-auto">
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-full-name"
+              >
+                First name
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                id="inline-full-name"
+                type="text"
+                value="Joe"
+              />
+            </div>
+          </div>
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-username"
+              >
+                Last name
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                id="inline-username"
+                type="text"
+                placeholder="Bloggs"
+              />
+            </div>
+          </div>
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-username"
+              >
+                Telephone
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                id="inline-username"
+                type="text"
+                placeholder="01233457990"
+              />
+            </div>
+          </div>
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-username"
+              >
+                Email
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                id="inline-username"
+                type="text"
+                placeholder="name@email.com"
+              />
+            </div>
+          </div>
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-username"
+              >
+                Website
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                id="inline-username"
+                type="text"
+                placeholder="www.website.com"
+              />
+            </div>
+          </div>
+
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3"></div>
+            <label class="md:w-2/3 block text-gray-500 font-bold">
+              <input class="mr-2 leading-tight" type="checkbox" />
+              <span class="text-sm">
+                Send me your newsletter!
+              </span>
+            </label>
+          </div>
+          <div class="md:flex md:items-center">
+            <div class="md:w-1/3"></div>
+            <div class="md:w-2/3">
+              <button
+                class="bg-blue-700 hover:bg-blue-700 hover:text-white text-white font-bold py-2 px-4 rounded-full my-5 mb--5 block"
+              >
+                SEND
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer class="footer bg-blue-900 pt-12 relative">
+      <div class="container mx-auto px-6">
+        
+        <div class="sm:flex sm:mt-16">
+          <div class="sm:w-2/3 sm:pl-16 mt-8 sm:mt-0">
+            
+            <p class="text-teal-100 pr-16">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, maxime neque? Repudiandae distinctio hic reiciendis blanditiis, at reprehenderit labore quam adipisci. Omnis iusto ipsum aliquam corrupti. Quos corporis repellendus nisi.
+            </p>
+            <div class="flex mt-6">
+              <a            
+                class="mr-3 flex items-center"
+                >
+                <i class="fab fa-twitter-square fa-3x text-white"></i></a
+              ><a            
+              class="mr-3 flex items-center"
+              >
+              <i class="fab fa-facebook fa-3x text-white"></i></a
+            ><a            
+            class="mr-3 flex items-center"
+            >
+            <i class="fab fa-linkedin fa-3x text-white"></i></a
+          ><a            
+          class="mr-3 flex items-center"
+          >
+          <i class="fab fa-instagram-square fa-3x text-white"></i></a
+        >
+            </div>
+          </div>
+          <div class="mt-16 sm:mt-0 sm:w-1/3 sm:pr-16 flex flex-col">
+            <span class="font-bold text-white uppercase mb-2">Links</span>
+            <div class="flex">
+              <ul class="flex-1">
+                <li class="mb-1">
+                  <a
+                    title="Tailwind CSS Buttons"
+                    href="/components/buttons"
+                    class="text-teal-100 hover:text-white"
+                    >About</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    title="Tailwind CSS Forms"
+                    href="/components/forms"
+                    class="text-teal-100 hover:text-white"
+                    >Products</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    title="Tailwind CSS Navigations"
+                    href="/components/navigations"
+                    class="text-teal-100 hover:text-white"
+                    >Prices</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    title="Tailwind CSS Cards"
+                    href="/components/cards"
+                    class="text-teal-100 hover:text-white"
+                    >Docs</a
+                  >
+                </li>
+              </ul>
+              <ul class="flex-1">
+                <li class="mb-1">
+                  <a
+                    title="Tailwind CSS Widget"
+                    href="/components/widget"
+                    class="text-teal-100 hover:text-white"
+                    >Contact</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    title="Tailwind CSS Tables"
+                    href="/components/tables"
+                    class="text-teal-100 hover:text-white"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    title="Tailwind CSS Layouts"
+                    href="/components/layouts"
+                    class="text-teal-100 hover:text-white"
+                    >Terms and Conditions</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto px-6">
+        <div class="mt-16 border-t border-blue-800 flex flex-col items-center">
+          <div class="sm:w-2/3 text-center py-6">
+            <p class="text-sm text-teal-100 mb-2">
+              © 2020 Some Company
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
