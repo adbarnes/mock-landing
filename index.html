@@ -17,14 +17,10 @@
   </head>
   <body class="bg-gray-200">
     <img class="hero-image-bg" src="imgs/bg.svg" alt="Hero shape" />
-    <img
-      src="imgs/undraw_browsing_urt9.svg"
-      class="hero-image absolute right-0 mr-3 sm:mr-1"
-      alt="Lady looking at screen"
-    />
+    
     <div class="max-w-screen-xl mx-auto sm:px-6 lg:px-8">
       <nav
-        class="flex items-center justify-between flex-wrap  px-3 py-6  w-full top-0 relative"
+        class="flex items-center justify-between flex-wrap  px-3 py-6  w-full top-0 relative z-10"
         x-data="{ isOpen: false }"
         @keydown.escape="isOpen = false"
         :class="{ 'shadow-lg bg-gray-600' : isOpen , 'bg-transparent' : !isOpen}"
@@ -130,6 +126,11 @@
       <!--Container for content-->
       <div class="container my-12 mx-auto px-3 sm:ml-none md:px-3 mt-32 md:mt-40">
         <div>
+          <img
+      src="imgs/undraw_browsing_urt9.svg"
+      class="hero-image sm:absolute sm:right-0 sm:mr-3 sm:mr-1 w-auto static sm:w-2/6 w-11/12"
+      alt="Lady looking at screen"
+    />
           <h1
             class="hero-heading max-w-xl text-6xl tracking-tight leading-tight font-extrabold text-blue-900 sm:text-5xl sm:leading-tight md:text-6xl"
           >
@@ -351,7 +352,7 @@
       </p>
     </div>
     <div class="footer-banner-bg">
-      <div class="container mx-auto px-24 md:px-24 py-48">
+      <div class="container mx-auto px-10 md:px-24 py-48">
         <h2 class="text-3xl text-blue-600 my-6 mt-12 text-center">
           Stay in the loop
         </h2>
@@ -412,7 +413,7 @@
                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                 id="inline-username"
                 type="text"
-                placeholder="01233457990"
+                placeholder="01234567890"
               />
             </div>
           </div>
