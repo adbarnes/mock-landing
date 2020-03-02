@@ -19,15 +19,15 @@
     <img class="hero-image-bg" src="imgs/bg.svg" alt="Hero shape" />
     <img
       src="imgs/undraw_browsing_urt9.svg"
-      class="hero-image absolute right-0"
-      alt=""
+      class="hero-image absolute right-0 mr-3 sm:mr-1"
+      alt="Lady looking at screen"
     />
     <div class="max-w-screen-xl mx-auto sm:px-6 lg:px-8">
       <nav
         class="flex items-center justify-between flex-wrap  px-3 py-6  w-full top-0 relative"
         x-data="{ isOpen: false }"
         @keydown.escape="isOpen = false"
-        :class="{ 'shadow-lg bg-blue-900' : isOpen , 'bg-transparent' : !isOpen}"
+        :class="{ 'shadow-lg bg-gray-600' : isOpen , 'bg-transparent' : !isOpen}"
       >
         <!--Logo etc-->
         <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -35,7 +35,7 @@
             class="flex items-center text-gray-200 no-underline hover:text-white hover:no-underline"
             href="#"
           >
-            <img class="h-8 mr-1" src="imgs/logo.svg" alt="Logo" />
+            <img class="h-8 mr-1 pl-4 lg:pl-0" src="imgs/logo.svg" alt="Logo" />
             <span class="text-gray-700 font-bold text-4xl logo-text">Ipsum</span>
           </a>
         </div>
